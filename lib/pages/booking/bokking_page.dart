@@ -1,27 +1,16 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
-import 'home_page.dart';
-import 'home_page1.dart';
-import 'home_page3.dart';
-
-class HomePage2 extends StatefulWidget {
-  const HomePage2({Key? key}) : super(key: key);
+class BokkingPage extends StatefulWidget {
+  const BokkingPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage2> createState() => _HomePage2State();
+  State<BokkingPage> createState() => _BokkingPageState();
 }
 
-class _HomePage2State extends State<HomePage2> with TickerProviderStateMixin {
+class _BokkingPageState extends State<BokkingPage>
+    with TickerProviderStateMixin {
   late TabController tabController;
   int currentIndex = 0;
-  List<Widget> _widgetOptions = [
-    HomePage(),
-    HomePage1(),
-    HomePage2(),
-    HomePage3(),
-  ];
   List<int> list_icon = [10, 11, 12, 13, 14];
   List<String> list_text = [
     "The White House",
@@ -44,7 +33,13 @@ class _HomePage2State extends State<HomePage2> with TickerProviderStateMixin {
     "Забронирован",
     "Отменён"
   ];
-  List <Color> list_color = [Colors.green, Colors.green, Colors.red,Colors.green, Colors.red,];
+  List<Color> list_color = [
+    Colors.green,
+    Colors.green,
+    Colors.red,
+    Colors.green,
+    Colors.red,
+  ];
 
   @override
   void initState() {
@@ -85,8 +80,20 @@ class _HomePage2State extends State<HomePage2> with TickerProviderStateMixin {
                 ),
               ),
               tabs: [
-                Tab(text: "Предстоящие"),
-                Tab(text: "История"),
+                Tab(child: SizedBox(width: 120, child: Center(child: Text("Предстоящие")))),
+                Tab(child: SizedBox(width: 120, child: Center(child: Text("История")))),
+                // Container(
+                //   width: 90.0,
+                //   child: Tab(text: 'Предстоящие'),
+                //   // Tab(text: "Предстоящие"),
+                //   // Tab(text: "История"),
+                // ),
+                // Container(
+                //   width: 90.0,
+                //   child: Tab(text: 'История'),
+                //   // Tab(text: "Предстоящие"),
+                //   // Tab(text: "История"),
+                // ),
               ],
             ),
           ),
@@ -147,40 +154,6 @@ class _HomePage2State extends State<HomePage2> with TickerProviderStateMixin {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.black,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-        currentIndex: currentIndex,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            activeIcon: Icon(Icons.search),
-            label: "Поиск",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.sports_volleyball_outlined),
-            activeIcon: Icon(Icons.sports_volleyball_outlined),
-            label: "Интересное",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_balance),
-            activeIcon: Icon(Icons.account_balance),
-            label: "Бронирования",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            activeIcon: Icon(Icons.person),
-            label: "Профиль",
-          ),
-        ],
       ),
     );
   }
