@@ -82,18 +82,7 @@ class _BokkingPageState extends State<BokkingPage>
               tabs: [
                 Tab(child: SizedBox(width: 120, child: Center(child: Text("Предстоящие")))),
                 Tab(child: SizedBox(width: 120, child: Center(child: Text("История")))),
-                // Container(
-                //   width: 90.0,
-                //   child: Tab(text: 'Предстоящие'),
-                //   // Tab(text: "Предстоящие"),
-                //   // Tab(text: "История"),
-                // ),
-                // Container(
-                //   width: 90.0,
-                //   child: Tab(text: 'История'),
-                //   // Tab(text: "Предстоящие"),
-                //   // Tab(text: "История"),
-                // ),
+
               ],
             ),
           ),

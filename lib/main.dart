@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:task10_04_04_23/pages/enter_phone/confirmation_code_page.dart';
+import 'package:task10_04_04_23/pages/enter_phone/enter_phone_page.dart';
 import 'package:task10_04_04_23/pages/main_page.dart';
 
-import 'pages/search/search_page.dart';
-import 'pages/interesting/interesting_page.dart';
-import 'pages/booking/bokking_page.dart';
-import 'pages/profile/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +21,11 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: MainPage(),
+      //  home: EditProfilePage(),
+      //  home: PassengersPage(),
+      //  home: MyCardsPage(),
+      //  home: EnterPhonePages(),
+      //  home: ConfirmationCodePage(),
     );
   }
 }

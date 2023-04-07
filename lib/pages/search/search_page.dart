@@ -98,10 +98,10 @@ class _SearchPageState extends State<SearchPage> {
                       height: 40,
                       child: Row(
                         children: const [
-                          SizedBox(width: 10),
+                          SizedBox(width: 5),
                           Icon(Icons.calendar_month),
-                          SizedBox(width: 10),
-                          Text("Выберите дату"),
+                          SizedBox(width: 5),
+                          Flexible(child: Text("Выберите дату")),
                         ],
                       ),
                     ),
@@ -115,9 +115,9 @@ class _SearchPageState extends State<SearchPage> {
                       height: 40,
                       child: Row(
                         children: const [
-                          SizedBox(width: 10),
+                          SizedBox(width: 5),
                           Icon(Icons.person_outline),
-                          SizedBox(width: 10),
+                          SizedBox(width: 5),
                           Text("Эконом, 1"),
                         ],
                       ),
@@ -132,9 +132,9 @@ class _SearchPageState extends State<SearchPage> {
                       height: 40,
                       child: Row(
                         children: const [
-                          SizedBox(width: 10),
+                          SizedBox(width: 5),
                           Icon(Icons.equalizer_rounded),
-                          SizedBox(width: 10),
+                          SizedBox(width: 5),
                           Text("Фильтр"),
                         ],
                       ),
