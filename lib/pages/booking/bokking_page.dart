@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task10_04_04_23/core/theme_colors.dart';
 
 class BokkingPage extends StatefulWidget {
   const BokkingPage({Key? key}) : super(key: key);
@@ -40,6 +41,7 @@ class _BokkingPageState extends State<BokkingPage>
     Colors.green,
     Colors.red,
   ];
+  int current = 0;
 
   @override
   void initState() {
@@ -50,64 +52,88 @@ class _BokkingPageState extends State<BokkingPage>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "Бронирования",
-          style: TextStyle(color: Colors.black),
-        ),
-        backgroundColor: Colors.white,
-        elevation: 1,
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(50),
-          child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            decoration: BoxDecoration(
-              color: Color(0xffF4F4F4),
-              borderRadius: BorderRadius.all(
-                Radius.circular(10),
-              ),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 16),
+              child: Image.asset("assets/icons8-equalizer-48.png", width: 18, height: 18,),
             ),
-            child: TabBar(
-              labelColor: Colors.black,
-              padding: EdgeInsets.all(4),
-              controller: tabController,
-              indicator: BoxDecoration(
-                color: Color(0xff0FB8D3),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(62),
-                ),
+          ],
+          title: Text(
+            "Бронирования",
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
+          elevation: 0,
+           bottom: PreferredSize(
+            preferredSize: Size.fromHeight(50),
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Color(0xffF4F4F4),
               ),
-              tabs: [
-                Tab(child: SizedBox(width: 120, child: Center(child: Text("Предстоящие")))),
-                Tab(child: SizedBox(width: 120, child: Center(child: Text("История")))),
-
-              ],
+              child: TabBar(
+                labelColor: Colors.black,
+                padding: EdgeInsets.all(4),
+                controller: tabController,
+                indicator: BoxDecoration(
+                  color: ThemeColors.primary,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(62),
+                  ),
+                ),
+                tabs: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(62),
+                    ),
+                    child: Tab(
+                        child: SizedBox(
+                            width: 120,
+                            child: Center(child: Text("Предстоящие")))),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(62),
+                    ),
+                    child: Tab(
+                        child: SizedBox(
+                            width: 120, child: Center(child: Text("История")))),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: TabBarView(
+         body:
+        TabBarView(
           controller: tabController,
           children: [
             ListView.builder(
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Container(
+                  padding: const EdgeInsets.only(left: 16, top: 16, right: 16 ),
+                  child: Container( decoration: BoxDecoration( color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(8),),
+                  ),
                     width: 343,
                     height: 70,
                     child: Row(
                       children: [
-                        Image.asset("assets/${list_icon[index]}.png"),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8, top: 11,bottom: 11),
+                          child: Image.asset("assets/${list_icon[index]}.png", width: 48, height: 48,),
+                        ),
                         SizedBox(width: 10),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                          children: [ SizedBox(height: 8),
                             Text(
                               "${list_text[index]}",
                               style: TextStyle(
@@ -115,7 +141,7 @@ class _BokkingPageState extends State<BokkingPage>
                                   fontWeight: FontWeight.w900,
                                   fontSize: 13),
                             ),
-                            SizedBox(height: 5),
+                            SizedBox(height: 2),
                             Text(
                               "${list_text1[index]}",
                               style: TextStyle(
@@ -123,7 +149,60 @@ class _BokkingPageState extends State<BokkingPage>
                                   fontSize: 11,
                                   fontWeight: FontWeight.w400),
                             ),
-                            SizedBox(height: 5),
+                            SizedBox(height: 2),
+                            Text(
+                              "${list_text2[index]}",
+                              style: TextStyle(
+                                color: list_color[index],
+                                fontWeight: FontWeight.w400,
+                                fontSize: 13,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+              itemCount: 5,
+            ),
+            ListView.builder(
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.only(left: 16, top: 16, right: 16 ),
+                  child: Container( decoration: BoxDecoration( color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(8),),
+                  ),
+                    width: 343,
+                    height: 70,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8, top: 11,bottom: 11),
+                          child: Image.asset("assets/${list_icon[index]}.png", width: 48, height: 48,),
+                        ),
+                        SizedBox(width: 10),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [ SizedBox(height: 8),
+                            Text(
+                              "${list_text[index]}",
+                              style: TextStyle(
+                                  color: Color(0xff303030),
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 13),
+                            ),
+                            SizedBox(height: 2),
+                            Text(
+                              "${list_text1[index]}",
+                              style: TextStyle(
+                                  color: Color(0xff969696),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            SizedBox(height: 2),
                             Text(
                               "${list_text2[index]}",
                               style: TextStyle(

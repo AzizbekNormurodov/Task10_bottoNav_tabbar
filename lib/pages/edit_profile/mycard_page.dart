@@ -13,18 +13,61 @@ class _MyCardsPageState extends State<MyCardsPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        leading: Icon(Icons.keyboard_arrow_left),
         title: const Text(
           "Мои карты",
           style: TextStyle(
               color: Colors.black, fontSize: 17, fontWeight: FontWeight.w600),
         ),
       ),
-      body: ListView.builder(
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
+      body: Column(
+        children: [
+          SizedBox(height: 12),
+          Padding(
+                padding: const EdgeInsets.only(left: 15, right: 16, top: 8,),
+                child: Container( decoration: BoxDecoration( borderRadius: BorderRadius.circular(8), color: Colors.white),
+                  width: double.infinity,
+                  height: 66,
+                  child: Row(
+                    children: [
+                      SizedBox(width: 5),
+                      Image.asset(
+                        "assets/search/Uzcard.png",
+                        width: 40,
+                        height: 40,
+                      ),
+                      SizedBox(width: 12),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 8),
+                          Text(
+                            "•••• •••• •••• 4432",
+                            style: TextStyle(
+                              color: Color(0xff303030),
+                              fontWeight: FontWeight.w400,
+                              fontSize: 17,
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            " 03/21",
+                            style: TextStyle(
+                              color: Color(0xff969696),
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 150),
+                      Image.asset("assets/search/trash.png"),
+                    ],
+                  ),
+                ),
+              ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15, right: 16, top: 8,),
+            child: Container( decoration: BoxDecoration( borderRadius: BorderRadius.circular(8), color: Colors.white),
               width: double.infinity,
               height: 66,
               child: Row(
@@ -59,15 +102,59 @@ class _MyCardsPageState extends State<MyCardsPage> {
                       ),
                     ],
                   ),
-                  SizedBox(width: 160),
+                  SizedBox(width: 150),
                   Image.asset("assets/search/trash.png"),
                 ],
               ),
             ),
-          );
-        },
-        itemCount: 3,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15, right: 16, top: 8,),
+            child: Container( decoration: BoxDecoration( borderRadius: BorderRadius.circular(8), color: Colors.white),
+              width: double.infinity,
+              height: 66,
+              child: Row(
+                children: [
+                  SizedBox(width: 5),
+                  Image.asset(
+                    "assets/search/Uzcard.png",
+                    width: 40,
+                    height: 40,
+                  ),
+                  SizedBox(width: 12),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 8),
+                      Text(
+                        "•••• •••• •••• 4432",
+                        style: TextStyle(
+                          color: Color(0xff303030),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 17,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        " 03/21",
+                        style: TextStyle(
+                          color: Color(0xff969696),
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: 150),
+                  Image.asset("assets/search/trash.png"),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
+
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Container(
         height: 48,

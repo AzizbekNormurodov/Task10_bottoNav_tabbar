@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:task10_04_04_23/core/theme_colors.dart';
+import 'package:task10_04_04_23/pages/search/widget/new_offer_widget.dart';
 import 'package:task10_04_04_23/pages/search/widget/popular_widget.dart';
 
 class SearchPage extends StatefulWidget {
@@ -28,11 +31,11 @@ class _SearchPageState extends State<SearchPage> {
         appBar: AppBar(
           toolbarHeight: 0,
           backgroundColor: Colors.white,
-          bottom:  const TabBar(
+          bottom: const TabBar(
             // controller: tabController,
-            isScrollable: true,
-            labelColor: Colors.blue,
-            unselectedLabelColor: Colors.black38,
+             isScrollable: true,
+            labelColor: ThemeColors.primary,
+            unselectedLabelColor: ThemeColors.black,
             indicator: BoxDecoration(
               border: Border(
                 bottom: BorderSide(color: Colors.cyan, width: 2),
@@ -41,111 +44,110 @@ class _SearchPageState extends State<SearchPage> {
             tabs:  [
               Tab(
                 text: "Полёт",
-                icon: Image( color: Color(0xff969696),
-                    image: AssetImage(
-                      "assets/search/plane.png",
-                    )),
+                icon: Icon(Icons.airplanemode_active),
               ),
               Tab(
                 text: "Отель",
-                icon: Image(
-                    image: AssetImage("assets/search/bed 1.png")),
+                icon: Icon(Icons.hotel),
               ),
               Tab(
                 text: "Туры",
-                icon: Image(
-                    image: AssetImage(
-                        "assets/search/compass-with-white-needles 1.png")),
+                icon: Icon(Icons.merge_type),
               ),
               Tab(
                 text: "Автопрокат",
-                icon: Image(
-                    image: AssetImage("assets/search/car.png")),
+                icon: Icon(Icons.car_crash),
               ),
             ],
           ),
         ),
         body: ListView(
+          padding: const EdgeInsets.all(16),
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                color: Colors.white,
-                child: Column(
-                  children: const [
-                    ListTile(
-                      leading: Image(image: AssetImage("assets/search/flight-takeoff-line 2.png"),),
-                      title: Text("Откуда"),
-                    ),
-                    ListTile(
-                      leading: Image(image: AssetImage("assets/search/flight-land-line 1.png"),),
-                      title: Text("Куда"),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
+            Container( height: 96, width: 343,
+              color: Colors.white,
+              child: Column(
+                children: const [
+                  SizedBox( height: 48,
+                    child: ListTile(
+                      visualDensity: VisualDensity(vertical: 0),
+                      leading: Image(
+                        image: AssetImage(
+                            "assets/search/flight-takeoff-line 2.png"),
                       ),
-                      height: 40,
-                      child: Row(
-                        children: const [
-                          SizedBox(width: 5),
-                          Icon(Icons.calendar_month),
-                          SizedBox(width: 5),
-                          Flexible(child: Text("Выберите дату")),
-                        ],
-                      ),
+                      title: Text("Откуда", style: TextStyle(color: ThemeColors.black,),),
+                     trailing: Icon(Icons.compare_arrows),
                     ),
                   ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
+                  SizedBox( height: 48,
+                    child: ListTile(
+                      visualDensity: VisualDensity(vertical: 0),
+                      leading: Image(
+                        image:
+                            AssetImage("assets/search/flight-land-line 1.png"),
                       ),
-                      height: 40,
-                      child: Row(
-                        children: const [
-                          SizedBox(width: 5),
-                          Icon(Icons.person_outline),
-                          SizedBox(width: 5),
-                          Text("Эконом, 1"),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      height: 40,
-                      child: Row(
-                        children: const [
-                          SizedBox(width: 5),
-                          Icon(Icons.equalizer_rounded),
-                          SizedBox(width: 5),
-                          Text("Фильтр"),
-                        ],
-                      ),
+                      title: Text("Куда", style: TextStyle(color: ThemeColors.black,),),
                     ),
                   ),
                 ],
               ),
             ),
+            SizedBox(height: 8),
+            Row(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  height: 32, width: 133,
+                  child: Row(
+                    children: const [
+                      SizedBox(width: 5),
+                      Icon(Icons.calendar_month_rounded, color: Color(0xff303030),),
+                      SizedBox(width: 5),
+                      Text("Выберите дату", style: TextStyle(fontSize: 13, color: Color(0xff969696)),),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 8),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  height: 32, width: 102,
+                  child: Row(
+                    children:  [
+                      SizedBox(width: 5),
+                      Icon(Icons.person, color: Color(0xff303030),),
+                      SizedBox(width: 5),
+                      Text("Эконом, 1"),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 8),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  height: 32, width: 108,
+                  child: Row(
+                    children: const [
+                      SizedBox(width: 5),
+                      Icon(Icons.equalizer_rounded),
+                      SizedBox(width: 5),
+                      Text("Фильтр"),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 16),
             Container(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: ThemeColors.primary,
                 borderRadius: BorderRadius.circular(8),
               ),
               width: 485,
@@ -162,14 +164,13 @@ class _SearchPageState extends State<SearchPage> {
             const SizedBox(height: 24),
             Row(
               children: const [
-                SizedBox(width: 10),
                 Text(
                   "Популярные направления",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
               ],
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 12),
             const PopularWidget(),
             Row(
               children: const [
@@ -182,173 +183,8 @@ class _SearchPageState extends State<SearchPage> {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.redAccent,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    height: 76,
-                    width: 77,
-                    child: Column(
-                      children: [
-                        Image.asset("assets/3.png"),
-                        const Text(
-                          "Возврат \nавиабилета",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 8),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    height: 76,
-                    width: 77,
-                    child: Column(
-                      children: [
-                        Image.asset("assets/4.png"),
-                        const Text(
-                          "Обмен \nавиабилета",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 8),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.greenAccent,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    height: 70,
-                    width: 70,
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          "assets/5.png",
-                          width: 35,
-                        ),
-                        const Text(
-                          "Безопасность \nплатежей",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 10),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: const Color(0xffA6C3FF),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    height: 76,
-                    width: 77,
-                    child: Column(
-                      children: const [
-                        Icon(
-                          Icons.help_outline,
-                          size: 30,
-                          color: Colors.white,
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Text(
-                          "Возврат \nавиабилета",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 10),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.redAccent,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    height: 80,
-                    width: 77,
-                    child: Column(
-                      children: [
-                        Image.asset("assets/3.png"),
-                        const Text(
-                          "Возврат \nавиабилета",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 10),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    height: 76,
-                    width: 77,
-                    child: Column(
-                      children: [
-                        Image.asset("assets/4.png"),
-                        const Text(
-                          "Обмен \nавиабилета",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 10),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.greenAccent,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    height: 70,
-                    width: 70,
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          "assets/5.png",
-                          width: 35,
-                        ),
-                        const Text(
-                          "Безопасность \nплатежей",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 10),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            const SizedBox(height: 12),
+            NewOfferWidget(),
           ],
         ),
       ),

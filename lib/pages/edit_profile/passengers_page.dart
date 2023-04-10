@@ -13,7 +13,7 @@ class _PassengersPageState extends State<PassengersPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        leading: Icon(Icons.keyboard_arrow_left),
+
         title: const Text(
           "Пассажиры",
           style: TextStyle(

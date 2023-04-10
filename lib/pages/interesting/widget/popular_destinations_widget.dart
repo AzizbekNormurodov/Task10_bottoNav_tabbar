@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PopularWidget extends StatelessWidget {
-  const PopularWidget({Key? key}) : super(key: key);
+class PopularDestinationsWidget extends StatelessWidget {
+  const PopularDestinationsWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +20,16 @@ class PopularWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
-                  "assets/7.png",
+                  "assets/1.png",
                   width: 150,
                   height: 150,
                 ),
                 const Text(
-                  "Игры кочевников",
+                  "Санк Петербург",
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
                 ),
                 const Text(
-                  "Стамбул",
+                  "от 1 850 000 uzs",
                   style: TextStyle(
                       color: Color(0xff64686B),
                       fontSize: 13,
@@ -49,16 +49,16 @@ class PopularWidget extends StatelessWidget {
             child: Column(crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
-                  "assets/8.png",
+                  "assets/2.png",
                   width: 150,
                   height: 150,
                 ),
                 const Text(
-                  "Бодрум за 5 дней!",
+                  "Лондон",
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
                 ),
                 const Text(
-                  "Бодрум",
+                  "от 1 850 000 uzs",
                   style: TextStyle(
                       color: Color(0xff64686B),
                       fontSize: 13,
@@ -83,11 +83,11 @@ class PopularWidget extends StatelessWidget {
                   height: 150,
                 ),
                 const Text(
-                  "Виноградный тур",
+                  "Санк Петербург",
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
                 ),
                 const Text(
-                  "Тбили́си",
+                  "от 1 850 000 uzs",
                   style: TextStyle(
                       color: Color(0xff64686B),
                       fontSize: 13,
@@ -116,7 +116,7 @@ class PopularWidget extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
                 ),
                 const Text(
-                  "Стамбул",
+                  "от 1 850 000 uzs",
                   style: TextStyle(
                       color: Color(0xff64686B),
                       fontSize: 13,

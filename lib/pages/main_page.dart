@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:task10_04_04_23/core/theme_colors.dart';
 import 'booking/bokking_page.dart';
 import 'search/search_page.dart';
 import 'interesting/interesting_page.dart';
@@ -32,35 +34,46 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.black,
         onTap: (index) {
           setState(() {
             currentIndex = index;
           });
         },
         currentIndex: currentIndex,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Image(image: AssetImage("assets/search/search.png")),
-            activeIcon: Image(image: AssetImage("assets/search/search.png")),
+            icon: SvgPicture.asset(
+              "assets/svg/ic_search.svg",
+              color: Color(0xff969696),
+            ),
+            activeIcon: SvgPicture.asset(
+              "assets/svg/ic_search.svg",
+              color: ThemeColors.primary,
+            ),
             label: "Поиск",
           ),
           BottomNavigationBarItem(
-            icon: Image(image: AssetImage("assets/search/world-map.png")),
-            activeIcon: Image(image: AssetImage("assets/search/world-map.png")),
+            icon: SvgPicture.asset("assets/svg/ic_world-map.svg"),
+            activeIcon: SvgPicture.asset(
+              "assets/svg/ic_world-map.svg",
+              color: ThemeColors.primary,
+            ),
             label: "Интересное",
           ),
           BottomNavigationBarItem(
-            icon: Image(image: AssetImage("assets/search/coupon.png")),
-            activeIcon: Image(image: AssetImage("assets/search/coupon.png")),
+            icon: SvgPicture.asset("assets/svg/ic_coupon.svg"),
+            activeIcon: SvgPicture.asset(
+              "assets/svg/ic_coupon.svg",
+              color: ThemeColors.primary,
+            ),
             label: "Бронирования",
           ),
           BottomNavigationBarItem(
-            icon: Image(image: AssetImage("assets/search/user.png")),
-            activeIcon: Image(image: AssetImage("assets/search/user.png")),
+            icon: SvgPicture.asset("assets/svg/ic_user.svg"),
+            activeIcon: SvgPicture.asset(
+              "assets/svg/ic_user.svg",
+              color: ThemeColors.primary,
+            ),
             label: "Профиль",
           ),
         ],
